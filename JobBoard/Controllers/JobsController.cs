@@ -7,23 +7,23 @@ namespace JobBoard.Controllers
   public class JobsController : Controller
   {
 
-    [HttpGet("/items")]
+    [HttpGet("/jobs")]
     public ActionResult Index()
     {
       List<Job> allItems = Job.GetAll();
       return View(allItems);
     }
 
-    [HttpGet("/items/new")]
+    [HttpGet("/jobs/new")]
     public ActionResult CreateForm()
     {
       return View();
     }
 
-    [HttpPost("/items")]
-    public ActionResult Create(string description)
+    [HttpPost("/jobs")]
+    public ActionResult Create(string title, string desc, string contact)
     {
-      Job myItem = new Job(description);
+      Job myItem = new Job(title, desc, contact);
       return RedirectToAction("Index");
     }
 

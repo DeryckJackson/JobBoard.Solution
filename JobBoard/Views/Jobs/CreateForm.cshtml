@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello Friend!</title>
+    <title>Hello Dave.</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
   </head>
   <body>
     <div class="container">
-      <form action="/items" method="post">
-        <label for="description">Add a new item</label>
-        <input id="description" name="description" type="text">
+      <form action="/jobs" method="post">
+        <label for="title">Title:</label>
+        <input id="title" name="title" type="text">
+        <label for="desc">Description:</label>
+        <input id="desc" name="desc" type="text">
+        <label for="contact">Phone Number:</label>
+        <input id="contact" name="contact" type="text">
         <button type="submit">Submit</button>
       </form>
     </div>
