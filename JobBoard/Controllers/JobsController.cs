@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using JobBoard.Models;
 using System.Collections.Generic;
 
-namespace ToDoList.Controllers
+namespace JobBoard.Controllers
 {
-  public class ItemsController : Controller
+  public class JobsController : Controller
   {
 
     [HttpGet("/items")]
     public ActionResult Index()
     {
-      List<Item> allItems = Item.GetAll();
+      List<Job> allItems = Job.GetAll();
       return View(allItems);
     }
 
@@ -23,7 +23,7 @@ namespace ToDoList.Controllers
     [HttpPost("/items")]
     public ActionResult Create(string description)
     {
-      Item myItem = new Item(description);
+      Job myItem = new Job(description);
       return RedirectToAction("Index");
     }
 

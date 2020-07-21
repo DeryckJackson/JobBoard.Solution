@@ -1,19 +1,38 @@
 using System.Collections.Generic;
 
-namespace ToDoList.Models
+namespace JobBoard.Models
 {
-  public class Item
+  public class Job
   {
-    public string Description { get; set; }
-    private static List<Item> _instances = new List<Item> { };
+    private string _title;
+    private string _desc;
+    private string _contactInfo;
+    private static List<Job> _instances = new List<Job>();
 
-    public Item(string description)
+    public Job(string title, string desc, string contactInfo)
     {
-      Description = description;
+      _title = title;
+      _desc = desc;
+      _contactInfo = contactInfo;
       _instances.Add(this);
     }
 
-    public static List<Item> GetAll()
+    public string GetTitle()
+    {
+      return _title;
+    }
+
+    public string GetDesc()
+    {
+      return _desc;
+    }
+
+    public string GetContactInfo()
+    {
+      return _contactInfo;
+    }
+
+    public static List<Job> GetAll()
     {
       return _instances;
     }

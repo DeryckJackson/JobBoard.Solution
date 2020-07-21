@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ToDoList.Controllers
+namespace JobBoard.Controllers
 {
     public class HomeController : Controller
     {
