@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello Dave.</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  </head>
-  <body>
-    <div class="container">
-      @using JobBoard.Models;
-      <h1>To Do List</h1>
-      @if (Model.Count == 0)
-      {
-        <p>There are no Jobs.</p>
-      }
-      <ul>
-        @foreach (Job job in Model)
-        {
-          <li>@job.GetTitle()</li>
-          <li>@job.GetDesc()</li>
-          <li>@job.GetContactInfo()</li><br>
-        }
-      </ul>
-      <a href="/jobs/new">Add a new item.</a>
-    </div>
-  </body>
-</html>
+<div class="container">
+  @using JobBoard.Models;
+  <h1>To Do List</h1>
+  @if (Model.Count == 0)
+  {
+    <p>There are no Jobs.</p>
+  }
+  <ul>
+    @foreach (Job job in Model)
+    {
+      <li><a href="jobs/@job.Id">@job.GetTitle()</a></li><br>
+      
+    }
+  </ul>
+  <a href="/jobs/new">Add a new item.</a>

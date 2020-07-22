@@ -15,9 +15,16 @@ namespace JobBoard.Controllers
     }
 
     [HttpGet("/jobs/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
+    }
+
+    [HttpGet("/jobs/{id}")]
+    public ActionResult Show(int id)
+    {
+      Job foundItem = Job.Find(id);
+      return View(foundItem);
     }
 
     [HttpPost("/jobs")]
@@ -25,6 +32,13 @@ namespace JobBoard.Controllers
     {
       Job myItem = new Job(title, desc, contact);
       return RedirectToAction("Index");
+    }
+
+    [HttpPost("/jobs/delete")]
+    public ActionResult DeleteAll()
+    {
+      Job.ClearAll();
+      return View();
     }
 
   }

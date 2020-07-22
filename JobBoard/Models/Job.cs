@@ -7,6 +7,7 @@ namespace JobBoard.Models
     private string _title;
     private string _desc;
     private string _contactInfo;
+    public int Id { get; }
     private static List<Job> _instances = new List<Job>();
 
     public Job(string title, string desc, string contactInfo)
@@ -15,6 +16,7 @@ namespace JobBoard.Models
       _desc = desc;
       _contactInfo = contactInfo;
       _instances.Add(this);
+      Id = _instances.Count - 1;
     }
 
     public string GetTitle()
@@ -40,6 +42,11 @@ namespace JobBoard.Models
     public static void ClearAll()
     {
       _instances.Clear();
+    }
+
+    public static Job Find(int searchId)
+    {
+      return _instances[searchId];
     }
   }
 }
