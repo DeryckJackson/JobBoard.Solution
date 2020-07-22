@@ -48,5 +48,16 @@ namespace JobBoard.Models
     {
       return _instances[searchId];
     }
+
+    public static void RemoveAt(int id)
+    {
+      for (int i = 0; i < _instances.Count; i++)
+      {
+        if (_instances[i].Id == id)
+        {
+          _instances.RemoveAt(i);
+        }
+      }
+    }
   }
 }

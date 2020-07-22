@@ -41,5 +41,15 @@ namespace JobBoard.Controllers
       return View();
     }
 
+    [HttpPost("/jobs/checked")]
+    public ActionResult Checked(int[] jobIds)
+    {
+      foreach (int id in jobIds)
+      {
+        Job.RemoveAt(id);
+      }
+      return RedirectToAction("Index");
+    }
+
   }
 }
